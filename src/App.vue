@@ -2,7 +2,7 @@
   <div class="card" v-bg="selectedFilm.image">
     <div class="blackout"></div>
     <h1 class="title">{{ selectedFilm.title }}</h1>
-    <div class="select">
+    <div class="selectWrapper">
       <app-films
         :films="films"
         :title="film"
@@ -82,6 +82,7 @@ export default {
   methods: {
     changeFilm (title) {
       this.film = this.films.find(film => film.title === title).title
+      this.changeActor(this.selectedActors[0])
     },
     changeActor (name) {
       this.actorInfo = this.actors.find(actor => actor.name === name)
@@ -94,9 +95,6 @@ export default {
     selectedActors () {
       return this.actors.filter(actor => actor.film === this.film)
         .map(actor => actor.name)
-    },
-    selectedActor () {
-      return this.actors.find(actor => actor.name === this.actorInfo)
     }
   },
   directives: {

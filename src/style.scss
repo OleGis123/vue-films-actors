@@ -31,7 +31,7 @@ body {
     color: white;
     text-transform: uppercase;
   }
-  .select {
+  .selectWrapper {
     width: 80%;
     margin: 0 auto;
     display: flex;
@@ -85,7 +85,12 @@ i {
 
 .left {
   transform: rotate(135deg);
-  -webkit-transform: rotate(135deg);
+  transition: 0.5s all;
+}
+
+.open {
+  transform: rotate(45deg);
+  transition: 0.5s all;
 }
 
 .actor {

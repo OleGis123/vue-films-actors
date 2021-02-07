@@ -1,8 +1,8 @@
 <template>
   <ul class="actors">
     <li class="actors_item" @click="show = !show">
-      {{ name }}
-      <i class="arrow left"></i>
+      {{ selectedName }}
+      <i class="arrow left" :class="{'open': show}"></i>
     </li>
     <li v-for="actor in actors"
         v-show="show"
@@ -21,7 +21,7 @@ export default {
   data () {
     return {
       show: false,
-      name: this.actors[0]
+      name: ''
     }
   },
   methods: {
@@ -29,6 +29,14 @@ export default {
       this.show = !this.show
       this.name = name
       this.$emit('changeActor', name)
+    }
+  },
+  computed: {
+    selectedName () {
+      if(!this.actors.includes(this.name)) {
+        this.name = this.actors[0]
+      }
+      return this.name
     }
   }
 }

@@ -1,8 +1,8 @@
 <template>
   <ul class="films">
     <li class="films_item" @click="show = !show">
-      {{ firstFilmTitle.title }}
-      <i class="arrow left"></i>
+      {{ title }}
+      <i class="arrow left" :class="{'open': show}"></i>
     </li>
     <li v-for="film in films"
         v-show="show"
@@ -27,11 +27,6 @@ export default {
     changeFilm (title) {
       this.show = !this.show
       this.$emit('changeFilm', title)
-    }
-  },
-  computed: {
-    firstFilmTitle () {
-      return this.films.find(item => item.title === this.title)
     }
   }
 }
