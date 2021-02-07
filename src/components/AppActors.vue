@@ -29,11 +29,12 @@ export default {
       this.show = !this.show
       this.name = name
       this.$emit('changeActor', name)
-    }
+    },
+
   },
   computed: {
     selectedName () {
-      if(!this.actors.includes(this.name)) {
+      if (!this.actors.includes(this.name)) {
         this.name = this.actors[0]
       }
       return this.name
